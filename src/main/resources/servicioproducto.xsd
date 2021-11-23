@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.cibertec.com/spring/soap/api/servicioProducto"
+	xmlns:tns="http://www.cibertec.com/spring/soap/api/servicioProducto"
+	elementFormDefault="qualified">
+
+	
+	<xsd:complexType name="producto">
+		<xsd:sequence>
+			<xsd:element name="id" type="xsd:int"/>
+			<xsd:element name="nombre" type="xsd:string"/>
+			<xsd:element name="stock" type="xsd:int"/>
+			<xsd:element name="precio" type="xsd:decimal"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:element name="postProductoRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="producto" type="tns:producto"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="postProductoResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="salida" type="xsd:int"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+
+	<xsd:element name="deleteProductoRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="codigo" type="xsd:int"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="deleteProductoResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="salida" type="xsd:int"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="getProductosRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="getProductosResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="2" name="lista" type="tns:producto"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
+</xsd:schema>
